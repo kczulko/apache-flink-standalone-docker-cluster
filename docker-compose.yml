@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  master:
+    image: kczulko/mesos-flink:ssh
+    command: "/root/startup.sh"
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./slaves:/opt/flink-1.2.0/conf/slaves
+      - ./sshconfig:/root/.ssh/config
+      - ./startup.sh:/root/startup.sh
+      - ./flink-conf.yaml:/opt/flink-1.2.0/conf/flink-conf.yaml
+  slave:
+    image: kczulko/mesos-flink:ssh
+    volumes:
+      - ./flink-conf.yaml:/opt/flink-1.2.0/conf/flink-conf.yaml
+
