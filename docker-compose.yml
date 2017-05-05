@@ -10,7 +10,11 @@ services:
       - ./sshconfig:/root/.ssh/config
       - ./startup.sh:/root/startup.sh
       - ./flink-conf.yaml:/opt/flink-1.2.0/conf/flink-conf.yaml
-  slave:
+  slave1:
+    image: kczulko/mesos-flink:ssh
+    volumes:
+      - ./flink-conf.yaml:/opt/flink-1.2.0/conf/flink-conf.yaml
+  slave2:
     image: kczulko/mesos-flink:ssh
     volumes:
       - ./flink-conf.yaml:/opt/flink-1.2.0/conf/flink-conf.yaml
