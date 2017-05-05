@@ -12,5 +12,5 @@ Simply execute
 docker-compose up
 ```
 
-from the project root dir and visit `localhost:8081`.
+from the project root dir and visit jobmanager gui `localhost:8081`.
 
