@@ -1,4 +1,4 @@
-FROM kczulko/mesos-flink:java8
+FROM kczulko/mesos-flink-1.2.1
 
 RUN apt-get install -y ssh openssh-server
 RUN mkdir /var/run/sshd
