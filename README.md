@@ -14,3 +14,6 @@ docker-compose up
 
 from the project root dir and visit jobmanager gui under `localhost:8081`.
 
+## High availability mode for JobManager
+
+Branch `ha` contains a setup for [HA standalone](https://ci.apache.org/projects/flink/flink-docs-release-1.3/setup/jobmanager_high_availability.html) cluster mode. I still don't know how to setup Dashboard GUI...
