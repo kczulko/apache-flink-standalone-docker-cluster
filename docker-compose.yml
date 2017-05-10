@@ -10,10 +10,6 @@ services:
       - ./sshconfig:/root/.ssh/config
       - ./flink-conf.yaml:/opt/flink-1.2.1/conf/flink-conf.yaml
       - ./zookeeper-startup.sh:/root/zookeeper-startup.sh
-    ports:
-      - "2181:2181"
-      - "2888:2888"
-      - "3888:3888"
   zk-gui:
     image: tobilg/zookeeper-webui
     environment:
@@ -23,10 +19,7 @@ services:
   master1:
     image: kczulko/mesos-flink-1.2.1:sshpasswordless
     command: "/root/startup.sh"
-    ports:
-      - "8081:8081"
     volumes:
-      - ./out.jar:/opt/flink-1.2.1/bin/out.jar
       - ./zoo.cfg:/opt/flink-1.2.1/conf/zoo.cfg
       - ./slaves:/opt/flink-1.2.1/conf/slaves
       - ./slaves:/opt/flink-1.2.1/conf/masters
@@ -57,8 +50,6 @@ services:
       - ./sshconfig:/root/.ssh/config
       - ./startup.sh:/root/startup.sh
       - ./flink-conf.yaml:/opt/flink-1.2.1/conf/flink-conf.yaml
-    ports:
-      - "8082:8081"
   slave2:
     image: kczulko/mesos-flink-1.2.1:sshpasswordless
     volumes:
@@ -68,6 +59,4 @@ services:
       - ./sshconfig:/root/.ssh/config
       - ./startup.sh:/root/startup.sh
       - ./flink-conf.yaml:/opt/flink-1.2.1/conf/flink-conf.yaml
-    ports:
-      - "8083:8081"
 
